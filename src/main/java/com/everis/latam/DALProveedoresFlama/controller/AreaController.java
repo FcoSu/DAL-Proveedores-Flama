@@ -14,6 +14,9 @@ import com.everis.latam.DALProveedoresFlama.dto.AreaDto;
 import com.everis.latam.DALProveedoresFlama.service.AreaService;
 import com.everis.latam.DALProveedoresFlama.service.implement.AreaServiceImplement;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RestController
 @RequestMapping("/area")
 public class AreaController {
@@ -26,14 +29,17 @@ public class AreaController {
 	
 	@RequestMapping(value = "/areaSave", method = RequestMethod.POST, consumes = "application/json")
 	public ResponseEntity<Object> getData(@RequestBody AreaDto area) {
+		AreaDto areaDTO = new AreaDto();
+		AreaDto Response = new AreaDto();
+		areaDTO = area;
+		log.info("mapeo completo");
 		try {
-		 areaService.save(area);
 			
-			System.out.println("area: "+ area);
-			return new ResponseEntity<Object>(area, HttpStatus.OK);
+			Response = areaService.save(areaDTO);
+			return new ResponseEntity<Object>(Response, HttpStatus.OK);
 		}
 		catch(Exception e) {
-			return new ResponseEntity<Object>(area, HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<Object>(Response, HttpStatus.BAD_REQUEST);
 		}
 	}
 	

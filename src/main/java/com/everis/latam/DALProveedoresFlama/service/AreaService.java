@@ -8,7 +8,7 @@ import com.everis.latam.DALProveedoresFlama.entity.Area;
 @Service
 public interface AreaService {
 
-		void save(AreaDto area);
+		AreaDto save(AreaDto area);
 		
 	
 }
