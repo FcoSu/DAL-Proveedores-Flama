@@ -36,9 +36,11 @@ public class AreaController {
 			return new ResponseEntity<Object>(area, HttpStatus.BAD_REQUEST);
 		}
 	}
-	//@PostMapping("/AreaSaveimpl")
-	//public void Insertar(@RequestBody AreaDto AreaDTO) {
-	//	areaService.Guardar(AreaDTO);
+	
+	
+	@PostMapping("/AreaSaveimpl")
+	public void Insertar(@RequestBody AreaDto AreaDTO) {
+		areaService.save(AreaDTO);
 		
-//	}
+	}
 }

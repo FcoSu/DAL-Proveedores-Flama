@@ -23,13 +23,13 @@ public class AreaServiceImplement implements AreaService{
 	
 	@SuppressWarnings("null")
 	public void save(AreaDto area) {
-		System.out.println("Objeto:  "+ area);
+		
 		Area AreaEntidad = new Area();
 		AreaEntidad.setArea_Nombre(area.getAreaNombre());
 		AreaEntidad.setArea_Responsable(area.getAreaResponsable());
 		AreaEntidad.setArea_Email(area.getAreaEmail());
 		AreaEntidad.setArea_Ceco(area.getAreaCeco());
-		System.out.println("melauda");
+		
 		
 		 areaRepository.save(AreaEntidad);
 		 
