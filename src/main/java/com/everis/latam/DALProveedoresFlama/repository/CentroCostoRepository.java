@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.everis.latam.DALProveedoresFlama.dto.CentroCostoDto;
 import com.everis.latam.DALProveedoresFlama.entity.CentroCosto;
 
 public interface CentroCostoRepository extends JpaRepository<CentroCosto,String>{

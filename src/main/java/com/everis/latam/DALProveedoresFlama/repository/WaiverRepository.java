@@ -1,5 +1,9 @@
 package com.everis.latam.DALProveedoresFlama.repository;
 
-public interface WaiverRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.everis.latam.DALProveedoresFlama.entity.Waiver;
+
+public interface WaiverRepository extends JpaRepository <Waiver,String> {
 
 }
