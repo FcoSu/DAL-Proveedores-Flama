@@ -24,7 +24,11 @@ public interface AreaRepository extends JpaRepository<Area,Integer> {
     //@Query("insert into AREA (AREA_NOMBRE,AREA_RESPONSABLE,AREA_EMAIL,AREA_CECO) select :areaNombre,:areaResponsable,:areaEmail,:areaCeco from area")
     //public void Guardar(@Param("area")Area );
 
-
+	@Query(value = "SELECT * FROM area", nativeQuery = true)
+	public List<Area> ObtenerAreas();
 	
+	@Query(value= "SELECT * FROM area WHERE area_Id=:id_Busqueda",nativeQuery = true)
+	public Area BuscarPorId(@Param("id_Busqueda") int ID);
 
 	}
+

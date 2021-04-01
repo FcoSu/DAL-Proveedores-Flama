@@ -1,5 +1,8 @@
 package com.everis.latam.DALProveedoresFlama.service.implement;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,16 +19,15 @@ public class AreaServiceImplement implements AreaService{
 	AreaRepository areaRepository;
 		
 	
-	
+	@Override
 	public AreaDto save(AreaDto area) {
 		AreaDto Respuesta = new AreaDto();
 		Area AreaEntidad = new Area();
+		
 		AreaEntidad = MapeoAEntidad(area);
 		
 		 areaRepository.save(AreaEntidad);
-		 
-		 
-		 
+		  
 		 Respuesta = MapeoADto(AreaEntidad);
 		 
 		 
@@ -33,10 +35,37 @@ public class AreaServiceImplement implements AreaService{
 		 
 	}
 	
+	@Override
+	public List<AreaDto> ListarAreas() {
+		List<AreaDto> ListaAreas=new ArrayList<>();
+		List<Area> AreaEntidad = areaRepository.ObtenerAreas();
+		AreasMapper(ListaAreas, AreaEntidad);
+		return ListaAreas;
+	}
+	
+	@Override
+	public AreaDto BuscarPorId(int ID) {
+		AreaDto Respuesta = new AreaDto();
+		Area Busqueda = areaRepository.BuscarPorId(ID);
+		Respuesta = MapeoADto(Busqueda);
+		return Respuesta;
+	};
 	
 	
 	
-	
+	public void AreasMapper(List<AreaDto> areasDTO, List<Area> areasEntidades) {
+		for(Area area:areasEntidades) {
+			AreaDto Auxiliar = new AreaDto();
+			Auxiliar.setAreaID(area.getArea_Id());
+			Auxiliar.setAreaNombre(area.getArea_Nombre());
+			Auxiliar.setAreaResponsable(area.getArea_Responsable());
+			Auxiliar.setAreaEmail(area.getArea_Email());
+			Auxiliar.setAreaCeco(area.getArea_Ceco());
+			
+			areasDTO.add(Auxiliar);
+		}
+		
+	}
 	
 	public Area MapeoAEntidad(AreaDto areaDTO) {
 		Area Respuesta = new Area();
@@ -60,4 +89,11 @@ public class AreaServiceImplement implements AreaService{
 		
 		return Respuesta;
 	}
+
+
+
+
+
+
+	
 }

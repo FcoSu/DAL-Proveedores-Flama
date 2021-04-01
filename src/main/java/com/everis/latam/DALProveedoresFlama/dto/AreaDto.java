@@ -1,7 +1,5 @@
 package com.everis.latam.DALProveedoresFlama.dto;
 
-import java.io.Serializable;
-
 import lombok.Data;
 
 @Data
