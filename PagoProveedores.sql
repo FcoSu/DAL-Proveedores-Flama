@@ -105,10 +105,10 @@ DROP TABLE IF EXISTS `estadoSolicitud`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `estadoSolicitud` (
-  `estadoSolicitud_Id` int NOT NULL,
+  `estado_solicitud_Id` int NOT NULL,
   `estado` varchar(254) DEFAULT NULL,
   `descripcion` varchar(254) DEFAULT NULL,
-  PRIMARY KEY (`estadoSolicitud_Id`)
+  PRIMARY KEY (`estado_solicitud_Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -130,13 +130,14 @@ DROP TABLE IF EXISTS `proveedor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `proveedor` (
+  `proveedor_id_Registro` int NOT NULL AUTO_INCREMENT,
   `proveedor_Id` varchar(254) NOT NULL,
   `proveedor_Nombre` varchar(254) DEFAULT NULL,
   `proveedor_Rut` varchar(254) DEFAULT NULL,
-  `proveedor_RazonSocial` varchar(254) DEFAULT NULL,
+  `proveedor_Razon_Social` varchar(254) DEFAULT NULL,
   `proveedor_Email` varchar(254) DEFAULT NULL,
-  PRIMARY KEY (`proveedor_Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  PRIMARY KEY (`proveedor_id_Registro`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -145,6 +146,7 @@ CREATE TABLE `proveedor` (
 
 LOCK TABLES `proveedor` WRITE;
 /*!40000 ALTER TABLE `proveedor` DISABLE KEYS */;
+INSERT INTO `proveedor` VALUES (1,'TheBestProv','yomerito','18.777.447-5','Prueba de Ingreso','TheEmail@elCorreo.cl'),(2,'TheBestProv','yomerito','18.777.447-5','Prueba de Ingreso','TheEmail@elCorreo.cl');
 /*!40000 ALTER TABLE `proveedor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -191,7 +193,7 @@ CREATE TABLE `solicitante` (
   `aprovador_Id` varchar(254) DEFAULT NULL,
   `aprovador_Nombre` varchar(254) DEFAULT NULL,
   PRIMARY KEY (`solicitante_Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -200,6 +202,7 @@ CREATE TABLE `solicitante` (
 
 LOCK TABLES `solicitante` WRITE;
 /*!40000 ALTER TABLE `solicitante` DISABLE KEYS */;
+INSERT INTO `solicitante` VALUES (1,'yomero','micorreo@theemail.com',' el de las pruebas','11232','minombre');
 /*!40000 ALTER TABLE `solicitante` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -212,11 +215,11 @@ DROP TABLE IF EXISTS `solicitud`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `solicitud` (
   `solicitud_Id` int NOT NULL AUTO_INCREMENT,
-  `proveedor_Id` varchar(254) DEFAULT NULL,
+  `proveedor_id_Registro` int NOT NULL,
   `area_Id` int DEFAULT NULL,
   `centro_Id` int DEFAULT NULL,
   `solicitante_Id` int DEFAULT NULL,
-  `estadoSolicitud_Id` int DEFAULT NULL,
+  `estado_solicitud_Id` int DEFAULT NULL,
   `solicitud_Numero` int DEFAULT NULL,
   `solicitud_Monto` int DEFAULT NULL,
   `solicitud_Iva` float DEFAULT NULL,
@@ -226,13 +229,13 @@ CREATE TABLE `solicitud` (
   KEY `FK_CONSULTA_MONTO_MAXIMO` (`centro_Id`),
   KEY `FK_CREA` (`solicitante_Id`),
   KEY `FK_PERTENECE` (`area_Id`),
-  KEY `FK_POSEE` (`proveedor_Id`),
-  KEY `FK_PUEDE_TENER` (`estadoSolicitud_Id`),
+  KEY `FK_POSEE` (`proveedor_id_Registro`),
+  KEY `FK_PUEDE_TENER` (`estado_solicitud_Id`),
   CONSTRAINT `FK_CONSULTA_MONTO_MAXIMO` FOREIGN KEY (`centro_Id`) REFERENCES `centrodeCosto` (`centro_Id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `FK_CREA` FOREIGN KEY (`solicitante_Id`) REFERENCES `solicitante` (`solicitante_Id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `FK_PERTENECE` FOREIGN KEY (`area_Id`) REFERENCES `area` (`area_Id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `FK_PUEDE_TENER` FOREIGN KEY (`estadoSolicitud_Id`) REFERENCES `estadoSolicitud` (`estadoSolicitud_Id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  CONSTRAINT `FK_PUEDE_TENER` FOREIGN KEY (`estado_solicitud_Id`) REFERENCES `estadoSolicitud` (`estado_solicitud_Id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -241,6 +244,7 @@ CREATE TABLE `solicitud` (
 
 LOCK TABLES `solicitud` WRITE;
 /*!40000 ALTER TABLE `solicitud` DISABLE KEYS */;
+INSERT INTO `solicitud` VALUES (1,2,3,4,1,1,11433,540000,19.2,3,'Esta es una solicitud de prueba '),(2,2,3,4,1,1,11433,540000,19.2,3,'Esta es una solicitud de prueba '),(3,2,3,4,1,1,11433,540000,19.2,3,'Esta es una solicitud de prueba ');
 /*!40000 ALTER TABLE `solicitud` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -278,4 +282,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-03-31 23:30:57
+-- Dump completed on 2021-04-02  1:14:50
