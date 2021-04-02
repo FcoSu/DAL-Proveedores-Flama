@@ -5,6 +5,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Data;
+import lombok.Getter;
 
 @Data
 @Entity
@@ -14,5 +15,5 @@ public class Waiver {
 	@Id
 	private String aprovador_Id;
 	private String area_Nombre;
-	private boolean waiver;
+	private Boolean waiver;
 }

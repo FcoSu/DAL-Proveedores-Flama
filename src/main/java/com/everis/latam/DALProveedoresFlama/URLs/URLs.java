@@ -8,11 +8,12 @@ public class URLs {
 	public final static String CentroList = "/CentroListar";
 	public final static String CentroSearch ="/CentroBuscarPorNombre";
 	
-	public final static String EstadoSolicitudInsert="/EstadoSolicitudIngresar";
+	
 	public final static String EstadoSolicitudList="/EstadoSolicitudListar";
 	public final static String EstadoSolicitudSearch = "/EstadoSolicitudBuscarId";
 	
 	public final static String ProveedorInsert ="/ProveedorIngresar";
+	public final static String ProveedorList = "/ProveedorListar";
 	public final static String ProveedorSearch ="/ProveedorBuscarId";
 	
 	public final static String ResolucionInsert ="/ResolucionIngresar";
@@ -26,7 +27,6 @@ public class URLs {
 	public final static String SolicitudList ="/SolicitudListar";
 	public final static String SolicitudSearch ="/SolicitudBuscarId";
 	
-	public final static String WaiverInsert ="/WaiverInsert";
 	public final static String WaiverSearch ="/WaiverSearch";
 	
 }

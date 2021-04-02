@@ -5,8 +5,9 @@ import lombok.Data;
 @Data
 public class SolicitudDto {
 	
+	
 	private int solicitudId;
-	private	String proveedorId;
+	private	int proveedorIdRegistro;
 	private int areaId;
 	private int centroId;
 	private int solicitanteId;
