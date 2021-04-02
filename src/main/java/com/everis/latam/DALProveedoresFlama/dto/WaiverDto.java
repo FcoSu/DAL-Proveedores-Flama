@@ -7,6 +7,6 @@ public class WaiverDto {
 	
 	private String aprovadorId;
 	private String areaNombre;
-	private boolean waiver;
+	private Boolean waiver;
 
 }

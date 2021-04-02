@@ -12,8 +12,8 @@ public interface EstadoSolicitudRepository extends JpaRepository <EstadoSolicitu
 
 	
 	@Query(value = "SELECT * FROM estadoSolicitud", nativeQuery = true)
-	public List<EstadoSolicitud> ObtenerEstados();
+	public List<EstadoSolicitud> EstadosListar();
 	
-	@Query (value = "SELECT * FROM estadoSolicitud WHERE estadoSolicitud_Id=:idBusqueda", nativeQuery = true)
-	public EstadoSolicitud BuscarCentroPorNombre(@Param("idBusqueda") int idBusqueda);
+	@Query (value = "SELECT * FROM estadoSolicitud WHERE estado_solicitud_Id=:idBusqueda", nativeQuery = true)
+	public EstadoSolicitud BuscarEstadoPorId(@Param("idBusqueda") int idBusqueda);
 }

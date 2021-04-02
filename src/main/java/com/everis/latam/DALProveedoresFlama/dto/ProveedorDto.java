@@ -5,7 +5,8 @@ import lombok.Data;
 @Data
 public class ProveedorDto {
 	
-	private int proveedorId;
+	private int proveedorIdRegistro;
+	private String proveedorId;
 	private String proveedorNombre;
 	private String proveedorRut;
 	private String proveedorRazonSocial;

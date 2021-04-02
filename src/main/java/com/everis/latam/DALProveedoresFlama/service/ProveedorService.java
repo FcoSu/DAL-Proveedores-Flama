@@ -11,7 +11,8 @@ public interface ProveedorService {
 	//Utilizar funcion .save (como en Area) para obtener la id una vez ingresada
 	List<ProveedorDto> ListarProveedor();
 	ProveedorDto save(ProveedorDto proveedor);
-	ProveedorDto BuscarProveedorPorID(String Id);
+	ProveedorDto BuscarProveedorPorID(int Id);
+	
 	
 
 }

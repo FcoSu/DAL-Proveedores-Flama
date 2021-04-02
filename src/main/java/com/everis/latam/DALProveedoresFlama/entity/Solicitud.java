@@ -16,7 +16,7 @@ public class Solicitud {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int solicitud_Id;
-	private	String proveedor_Id;
+	private	int proveedor_id_Registro;
 	private int area_Id;
 	private int centro_Id;
 	private int solicitante_Id;

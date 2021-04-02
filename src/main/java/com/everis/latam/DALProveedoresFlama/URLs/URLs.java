@@ -13,6 +13,7 @@ public class URLs {
 	public final static String EstadoSolicitudSearch = "/EstadoSolicitudBuscarId";
 	
 	public final static String ProveedorInsert ="/ProveedorIngresar";
+	public final static String ProveedorList = "/ProveedorListar";
 	public final static String ProveedorSearch ="/ProveedorBuscarId";
 	
 	public final static String ResolucionInsert ="/ResolucionIngresar";
