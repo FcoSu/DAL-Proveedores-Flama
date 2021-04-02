@@ -49,6 +49,41 @@ public class SolicitudServiceImplement implements SolicitudService {
 	}
 	
 	
+	@Override
+	public SolicitudDto BuscarSolicitudPorId(int idBuscar) {
+		SolicitudDto respuesta = new SolicitudDto();
+		Solicitud solicitudEncontrada = new Solicitud();
+		try {
+		solicitudEncontrada = solicitudRepository.BuscarSolictudPorId(idBuscar);
+		respuesta = MapeoADTO(solicitudEncontrada);
+		return respuesta;
+		}catch (Exception e) {
+			return respuesta;
+		}
+	}
+	
+	
+
+	@Override
+	public SolicitudDto ModificarSolicitud(int idBuscar, int estadoNuevo) {
+		SolicitudDto respuesta = new SolicitudDto();
+		
+		System.out.println("Datos a enviar: id: "+ idBuscar+"  nuevo estado: "+ estadoNuevo);
+		try {
+			System.out.println("stry");
+			respuesta = MapeoADTO(solicitudRepository.BuscarSolictudPorId(idBuscar));
+			respuesta.setEstadoSolicitudId(estadoNuevo);
+			solicitudRepository.save(MapeoAEntidad(respuesta));
+			System.out.println(respuesta);
+			
+			return respuesta;
+		} catch (Exception e) {
+			return respuesta;
+		}
+		
+	}
+	
+	
 	
 
 	public Solicitud MapeoAEntidad(SolicitudDto solicitudDTO) {
@@ -110,6 +145,11 @@ public class SolicitudServiceImplement implements SolicitudService {
 		
 		return auxiliar;
 	}
+
+
+
+
+	
 
 
 

@@ -59,9 +59,13 @@ public class AreaController {
 	@GetMapping(value = URLs.AreaSearch)
 	public ResponseEntity<AreaDto> ObtenerAreaPorId(@RequestParam("id") int ID) {
 		AreaDto AreaEncontrada = new AreaDto();
-		AreaEncontrada = areaService.BuscarPorId(ID);
+		try {
+			AreaEncontrada = areaService.BuscarPorId(ID);
 
-		return new ResponseEntity<>(AreaEncontrada, HttpStatus.OK);
+			return new ResponseEntity<>(AreaEncontrada, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(AreaEncontrada, HttpStatus.BAD_REQUEST);
+		}
 	}
 
 	@PostMapping("/AreaSaveimpl")

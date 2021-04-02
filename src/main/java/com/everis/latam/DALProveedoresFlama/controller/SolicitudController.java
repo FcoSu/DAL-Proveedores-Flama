@@ -8,8 +8,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.everis.latam.DALProveedoresFlama.URLs.URLs;
@@ -48,6 +50,29 @@ public class SolicitudController {
 		} catch (Exception e) {
 			return new ResponseEntity<>(SolicitudesAListar,HttpStatus.BAD_REQUEST);
  
+		}
+		
+	}
+	@GetMapping (value = URLs.SolicitudSearch)
+	public ResponseEntity<SolicitudDto> BuscarSolicitudPorId(@RequestParam("id") int idBuscar){
+		SolicitudDto SolicitudEncontrada = new SolicitudDto();
+		try {
+			SolicitudEncontrada = solicitudService.BuscarSolicitudPorId(idBuscar);
+			return new ResponseEntity<>(SolicitudEncontrada,HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(SolicitudEncontrada,HttpStatus.BAD_REQUEST);
+		}
+		
+	}
+	
+	@PostMapping (value = URLs.SolicitudUpdate)
+	public ResponseEntity<SolicitudDto> ModificarEstadoSolicitud(@RequestParam ("id") int idBuscar, @RequestParam ("nuevoEstado") int EstadoNuevo){
+		SolicitudDto solicitudModificada =new SolicitudDto();
+		try {
+			solicitudModificada = solicitudService.ModificarSolicitud(idBuscar,EstadoNuevo);
+			return new ResponseEntity<>(solicitudModificada, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(solicitudModificada, HttpStatus.BAD_REQUEST);
 		}
 		
 	}
