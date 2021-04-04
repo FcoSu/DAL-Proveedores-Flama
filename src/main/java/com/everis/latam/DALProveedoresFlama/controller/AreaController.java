@@ -12,12 +12,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.everis.latam.DALProveedoresFlama.dto.AreaDto;
 import com.everis.latam.DALProveedoresFlama.service.AreaService;
-import com.everis.latam.DALProveedoresFlama.service.implement.AreaServiceImplement;
 import com.everis.latam.DALProveedoresFlama.URLs.URLs;
 
 import lombok.extern.slf4j.Slf4j;
@@ -37,7 +35,6 @@ public class AreaController {
 		areaDTO = area;
 		log.info("mapeo completo");
 		try {
-
 			Response = areaService.save(areaDTO);
 			return new ResponseEntity<Object>(Response, HttpStatus.OK);
 		} catch (Exception e) {
@@ -59,9 +56,13 @@ public class AreaController {
 	@GetMapping(value = URLs.AreaSearch)
 	public ResponseEntity<AreaDto> ObtenerAreaPorId(@RequestParam("id") int ID) {
 		AreaDto AreaEncontrada = new AreaDto();
-		AreaEncontrada = areaService.BuscarPorId(ID);
+		try {
+			AreaEncontrada = areaService.BuscarPorId(ID);
 
-		return new ResponseEntity<>(AreaEncontrada, HttpStatus.OK);
+			return new ResponseEntity<>(AreaEncontrada, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(AreaEncontrada, HttpStatus.BAD_REQUEST);
+		}
 	}
 
 	@PostMapping("/AreaSaveimpl")

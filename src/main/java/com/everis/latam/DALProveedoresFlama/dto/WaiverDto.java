@@ -5,8 +5,8 @@ import lombok.Data;
 @Data
 public class WaiverDto {
 	
-	private String aprovadorId;
-	private String areaNombre;
+	private String idAprobador;
+	private String nombreArea;
 	private Boolean waiver;
 
 }

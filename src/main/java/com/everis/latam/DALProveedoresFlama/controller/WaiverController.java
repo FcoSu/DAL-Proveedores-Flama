@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.everis.latam.DALProveedoresFlama.URLs.URLs;
 import com.everis.latam.DALProveedoresFlama.dto.WaiverDto;
-import com.everis.latam.DALProveedoresFlama.entity.Waiver;
 import com.everis.latam.DALProveedoresFlama.service.WaiverService;
 
 @RestController

@@ -48,6 +48,55 @@ public class SolicitudServiceImplement implements SolicitudService {
 		}
 	}
 	
+	@Override
+	public List<SolicitudDto> ListarSolicitudesPorFecha() {
+		List<Solicitud> MapearPorFecha = new ArrayList<>();
+		List<SolicitudDto> RespuestaPorFecha = new ArrayList<>();
+		try {
+		MapearPorFecha = solicitudRepository.ListarSolicitudesPorFecha();
+		System.out.println(MapearPorFecha);
+		MapeoSolicitudes(RespuestaPorFecha, MapearPorFecha);
+		return RespuestaPorFecha;
+		}catch(Exception e) {
+		return RespuestaPorFecha;
+		}
+	}
+	
+	
+	@Override
+	public SolicitudDto BuscarSolicitudPorId(int idBuscar) {
+		SolicitudDto respuesta = new SolicitudDto();
+		Solicitud solicitudEncontrada = new Solicitud();
+		try {
+		solicitudEncontrada = solicitudRepository.BuscarSolictudPorId(idBuscar);
+		respuesta = MapeoADTO(solicitudEncontrada);
+		return respuesta;
+		}catch (Exception e) {
+			return respuesta;
+		}
+	}
+	
+	
+
+	@Override
+	public SolicitudDto ModificarSolicitud(int idBuscar, int estadoNuevo) {
+		SolicitudDto respuesta = new SolicitudDto();
+		
+		System.out.println("Datos a enviar: id: "+ idBuscar+"  nuevo estado: "+ estadoNuevo);
+		try {
+			System.out.println("stry");
+			respuesta = MapeoADTO(solicitudRepository.BuscarSolictudPorId(idBuscar));
+			respuesta.setEstadoSolicitudId(estadoNuevo);
+			solicitudRepository.save(MapeoAEntidad(respuesta));
+			System.out.println(respuesta);
+			
+			return respuesta;
+		} catch (Exception e) {
+			return respuesta;
+		}
+		
+	}
+	
 	
 	
 
@@ -60,11 +109,11 @@ public class SolicitudServiceImplement implements SolicitudService {
 		auxiliar.setCentro_Id(solicitudDTO.getCentroId());
 		auxiliar.setSolicitante_Id(solicitudDTO.getSolicitanteId());
 		auxiliar.setEstadoSolicitud_Id(solicitudDTO.getEstadoSolicitudId());
-		auxiliar.setSolicitud_Numero(solicitudDTO.getSolicitudNumero());
-		auxiliar.setSolicitud_Monto(solicitudDTO.getSolicitudMonto());
-		auxiliar.setSolicitud_Iva(solicitudDTO.getSolicitudIva());
-		auxiliar.setSolicitud_Prioridad(solicitudDTO.getSolicitudPrioridad());
-		auxiliar.setSolicitud_Descripcion(solicitudDTO.getSolicitudDescripcion());
+		auxiliar.setSolicitud_Numero(solicitudDTO.getNumero());
+		auxiliar.setSolicitud_Monto(solicitudDTO.getMonto());
+		auxiliar.setSolicitud_Iva(solicitudDTO.getIva());
+		auxiliar.setSolicitud_Prioridad(solicitudDTO.getPrioridad());
+		auxiliar.setSolicitud_Descripcion(solicitudDTO.getDescripcion());
 		
 		
 		return auxiliar;
@@ -80,11 +129,11 @@ public class SolicitudServiceImplement implements SolicitudService {
 			objetoMapeo.setCentroId(mapper.getCentro_Id());
 			objetoMapeo.setSolicitanteId(mapper.getSolicitante_Id());
 			objetoMapeo.setEstadoSolicitudId(mapper.getSolicitud_Id());
-			objetoMapeo.setSolicitudNumero(mapper.getSolicitud_Numero());
-			objetoMapeo.setSolicitudMonto(mapper.getSolicitud_Monto());
-			objetoMapeo.setSolicitudIva(mapper.getSolicitud_Iva());
-			objetoMapeo.setSolicitudPrioridad(mapper.getSolicitud_Prioridad());
-			objetoMapeo.setSolicitudDescripcion(mapper.getSolicitud_Descripcion());
+			objetoMapeo.setNumero(mapper.getSolicitud_Numero());
+			objetoMapeo.setMonto(mapper.getSolicitud_Monto());
+			objetoMapeo.setIva(mapper.getSolicitud_Iva());
+			objetoMapeo.setPrioridad(mapper.getSolicitud_Prioridad());
+			objetoMapeo.setDescripcion(mapper.getSolicitud_Descripcion());
 			
 			Respuesta.add(objetoMapeo);
 			
@@ -102,14 +151,22 @@ public class SolicitudServiceImplement implements SolicitudService {
 		auxiliar.setCentroId(Mapear.getCentro_Id());
 		auxiliar.setSolicitanteId(Mapear.getSolicitante_Id());
 		auxiliar.setEstadoSolicitudId(Mapear.getSolicitud_Id());
-		auxiliar.setSolicitudNumero(Mapear.getSolicitud_Numero());
-		auxiliar.setSolicitudMonto(Mapear.getSolicitud_Monto());
-		auxiliar.setSolicitudIva(Mapear.getSolicitud_Iva());
-		auxiliar.setSolicitudPrioridad(Mapear.getSolicitud_Prioridad());
-		auxiliar.setSolicitudDescripcion(Mapear.getSolicitud_Descripcion());
+		auxiliar.setNumero(Mapear.getSolicitud_Numero());
+		auxiliar.setMonto(Mapear.getSolicitud_Monto());
+		auxiliar.setIva(Mapear.getSolicitud_Iva());
+		auxiliar.setPrioridad(Mapear.getSolicitud_Prioridad());
+		auxiliar.setDescripcion(Mapear.getSolicitud_Descripcion());
 		
 		return auxiliar;
 	}
+
+
+	
+
+
+
+
+	
 
 
 

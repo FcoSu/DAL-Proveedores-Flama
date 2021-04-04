@@ -13,4 +13,10 @@ public interface SolicitudService {
 
 	List<SolicitudDto> ListarSolicitudes();
 
+	SolicitudDto BuscarSolicitudPorId(int idBuscar);
+
+	SolicitudDto ModificarSolicitud(int idBuscar, int estadoNuevo);
+
+	List<SolicitudDto> ListarSolicitudesPorFecha();
+
 }

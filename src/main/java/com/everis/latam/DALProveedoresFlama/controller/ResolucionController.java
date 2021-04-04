@@ -28,7 +28,7 @@ public class ResolucionController {
 		ResolucionIngreso = ResolucionDTO;
 		
 		try {
-			resolucionService.save(ResolucionIngreso);
+			Response = resolucionService.save(ResolucionIngreso);
 			return new ResponseEntity<>(Response, HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(Response, HttpStatus.BAD_REQUEST);

@@ -6,9 +6,9 @@ import lombok.Data;
 public class SolicitanteDto {
 	
 	private int solicitanteId;
-	private String solicitanteNombre;
-	private String solicitanteEmail;
-	private String solicitanteCargo;
-	private String aprovadorId;
-	private String aprovadorNombre;
+	private String nombreSolicitante;
+	private String email;
+	private String cargo;
+	private String idAprobador;
+	private String aprovador;
 }

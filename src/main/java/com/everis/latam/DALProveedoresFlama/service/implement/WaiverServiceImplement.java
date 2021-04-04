@@ -30,8 +30,8 @@ public class WaiverServiceImplement implements WaiverService {
 	
 	public WaiverDto MapeoADto(Waiver entidad) {
 		WaiverDto auxiliar = new WaiverDto();
-		auxiliar.setAprovadorId(entidad.getAprovador_Id());
-		auxiliar.setAreaNombre(entidad.getArea_Nombre());
+		auxiliar.setIdAprobador(entidad.getAprovador_Id());
+		auxiliar.setNombreArea(entidad.getArea_Nombre());
 		auxiliar.setWaiver(entidad.getWaiver());
 		
 		return auxiliar;

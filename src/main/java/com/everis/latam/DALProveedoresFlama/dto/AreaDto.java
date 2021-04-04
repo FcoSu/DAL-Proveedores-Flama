@@ -8,9 +8,9 @@ public class AreaDto  {
 	//private static final long serialVersionUID = 1L;
 	
 	private int areaID;
-	private String areaNombre;
-	private String areaResponsable;	
-	private String areaEmail;
-	private String areaCeco;
+	private String nombreArea;
+	private String responsable;	
+	private String email;
+	private String ceco;
 
 }

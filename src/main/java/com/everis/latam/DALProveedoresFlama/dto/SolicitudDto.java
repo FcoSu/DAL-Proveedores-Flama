@@ -12,10 +12,10 @@ public class SolicitudDto {
 	private int centroId;
 	private int solicitanteId;
 	private int estadoSolicitudId;
-	private int solicitudNumero;
-	private int solicitudMonto;
-	private float solicitudIva;
-	private int solicitudPrioridad;
-	private String solicitudDescripcion;
+	private int numero;
+	private int monto;
+	private float iva;
+	private int prioridad;
+	private String descripcion;
 
 }

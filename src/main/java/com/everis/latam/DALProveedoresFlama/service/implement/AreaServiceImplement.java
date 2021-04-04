@@ -57,10 +57,10 @@ public class AreaServiceImplement implements AreaService{
 		for(Area area:areasEntidades) {
 			AreaDto Auxiliar = new AreaDto();
 			Auxiliar.setAreaID(area.getArea_Id());
-			Auxiliar.setAreaNombre(area.getArea_Nombre());
-			Auxiliar.setAreaResponsable(area.getArea_Responsable());
-			Auxiliar.setAreaEmail(area.getArea_Email());
-			Auxiliar.setAreaCeco(area.getArea_Ceco());
+			Auxiliar.setNombreArea(area.getArea_Nombre());
+			Auxiliar.setResponsable(area.getArea_Responsable());
+			Auxiliar.setEmail(area.getArea_Email());
+			Auxiliar.setCeco(area.getArea_Ceco());
 			
 			areasDTO.add(Auxiliar);
 		}
@@ -69,10 +69,10 @@ public class AreaServiceImplement implements AreaService{
 	
 	public Area MapeoAEntidad(AreaDto areaDTO) {
 		Area Respuesta = new Area();
-		Respuesta.setArea_Nombre(areaDTO.getAreaNombre());
-		Respuesta.setArea_Responsable(areaDTO.getAreaResponsable());
-		Respuesta.setArea_Email(areaDTO.getAreaEmail());
-		Respuesta.setArea_Ceco(areaDTO.getAreaCeco());
+		Respuesta.setArea_Nombre(areaDTO.getNombreArea());
+		Respuesta.setArea_Responsable(areaDTO.getResponsable());
+		Respuesta.setArea_Email(areaDTO.getEmail());
+		Respuesta.setArea_Ceco(areaDTO.getCeco());
 		
 		
 		return Respuesta;
@@ -82,10 +82,10 @@ public class AreaServiceImplement implements AreaService{
 		AreaDto Respuesta = new AreaDto();
 		
 		Respuesta.setAreaID(areaEntidad.getArea_Id());
-		Respuesta.setAreaNombre(areaEntidad.getArea_Nombre());
-		Respuesta.setAreaResponsable(areaEntidad.getArea_Responsable());
-		Respuesta.setAreaEmail(areaEntidad.getArea_Email());
-		Respuesta.setAreaCeco(areaEntidad.getArea_Ceco());
+		Respuesta.setNombreArea(areaEntidad.getArea_Nombre());
+		Respuesta.setResponsable(areaEntidad.getArea_Responsable());
+		Respuesta.setEmail(areaEntidad.getArea_Email());
+		Respuesta.setCeco(areaEntidad.getArea_Ceco());
 		
 		return Respuesta;
 	}
