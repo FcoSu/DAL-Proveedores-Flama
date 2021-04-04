@@ -46,7 +46,7 @@ public class CentroCostoServiceImplement implements CentroCostoService {
 			CentroCostoDto Auxiliar = new CentroCostoDto();
 			
 			Auxiliar.setCentroId(Centro.getCentro_Id());
-			Auxiliar.setAprovadorId(Centro.getAprovador_Id());
+			Auxiliar.setIdAprobador(Centro.getAprovador_Id());
 			Auxiliar.setCentroNombre(Centro.getCentro_Nombre());
 			Auxiliar.setMontoMaximo(Centro.getMonto_Maximo());
 			Auxiliar.setMoneda(Centro.getMoneda());
@@ -58,7 +58,7 @@ public class CentroCostoServiceImplement implements CentroCostoService {
 	public CentroCostoDto MapeoADto(CentroCosto centro) {
 		CentroCostoDto Auxiliar = new CentroCostoDto ();
 		Auxiliar.setCentroId(centro.getCentro_Id());
-		Auxiliar.setAprovadorId(centro.getAprovador_Id());
+		Auxiliar.setIdAprobador(centro.getAprovador_Id());
 		Auxiliar.setCentroNombre(centro.getCentro_Nombre());
 		Auxiliar.setMontoMaximo(centro.getMonto_Maximo());
 		Auxiliar.setMoneda(centro.getMoneda());

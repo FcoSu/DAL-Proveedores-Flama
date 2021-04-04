@@ -60,11 +60,11 @@ public class ProveedorServiceImplement implements ProveedorService{
 	public Proveedor MapeoAEntidad(ProveedorDto proveedorAMapear) {
 		Proveedor Auxiliar = new Proveedor();
 		
-		Auxiliar.setProveedor_Id(proveedorAMapear.getProveedorId());
-		Auxiliar.setProveedor_Nombre(proveedorAMapear.getProveedorNombre());
-		Auxiliar.setProveedor_Rut(proveedorAMapear.getProveedorRut());
-		Auxiliar.setProveedor_Razon_Social(proveedorAMapear.getProveedorRazonSocial());
-		Auxiliar.setProveedor_Email(proveedorAMapear.getProveedorEmail());
+		Auxiliar.setProveedor_Id(proveedorAMapear.getIdProveedor());
+		Auxiliar.setProveedor_Nombre(proveedorAMapear.getNombre());
+		Auxiliar.setProveedor_Rut(proveedorAMapear.getRut());
+		Auxiliar.setProveedor_Razon_Social(proveedorAMapear.getRazonSocial());
+		Auxiliar.setProveedor_Email(proveedorAMapear.getEmail());
 		
 		return Auxiliar;
 	}
@@ -73,11 +73,11 @@ public class ProveedorServiceImplement implements ProveedorService{
 		ProveedorDto Auxiliar = new ProveedorDto();
 		
 		Auxiliar.setProveedorIdRegistro(enti.getProveedor_id_Registro());
-		Auxiliar.setProveedorId(enti.getProveedor_Id());
-		Auxiliar.setProveedorNombre(enti.getProveedor_Nombre());
-		Auxiliar.setProveedorRut(enti.getProveedor_Rut());
-		Auxiliar.setProveedorRazonSocial(enti.getProveedor_Razon_Social());
-		Auxiliar.setProveedorEmail(enti.getProveedor_Email());
+		Auxiliar.setIdProveedor(enti.getProveedor_Id());
+		Auxiliar.setNombre(enti.getProveedor_Nombre());
+		Auxiliar.setRut(enti.getProveedor_Rut());
+		Auxiliar.setRazonSocial(enti.getProveedor_Razon_Social());
+		Auxiliar.setEmail(enti.getProveedor_Email());
 		return Auxiliar;
 	}
 	
@@ -87,11 +87,11 @@ public class ProveedorServiceImplement implements ProveedorService{
 			ProveedorDto auxiliar = new ProveedorDto();
 			
 			auxiliar.setProveedorIdRegistro(mapeo.getProveedor_id_Registro());
-			auxiliar.setProveedorId(mapeo.getProveedor_Id());
-			auxiliar.setProveedorNombre(mapeo.getProveedor_Nombre());
-			auxiliar.setProveedorRut(mapeo.getProveedor_Rut());
-			auxiliar.setProveedorRazonSocial(mapeo.getProveedor_Razon_Social());
-			auxiliar.setProveedorEmail(mapeo.getProveedor_Email());
+			auxiliar.setIdProveedor(mapeo.getProveedor_Id());
+			auxiliar.setNombre(mapeo.getProveedor_Nombre());
+			auxiliar.setRut(mapeo.getProveedor_Rut());
+			auxiliar.setRazonSocial(mapeo.getProveedor_Razon_Social());
+			auxiliar.setEmail(mapeo.getProveedor_Email());
 			
 			response.add(auxiliar);
 			

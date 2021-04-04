@@ -7,7 +7,7 @@ public class CentroCostoDto {
 	
 	
 	private Integer centroId;
-	private Integer aprovadorId;
+	private Integer idAprobador;
 	private String centroNombre;
 	private Integer montoMaximo;
 	private String moneda;

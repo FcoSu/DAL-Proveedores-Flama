@@ -37,7 +37,6 @@ public class AreaController {
 		areaDTO = area;
 		log.info("mapeo completo");
 		try {
-
 			Response = areaService.save(areaDTO);
 			return new ResponseEntity<Object>(Response, HttpStatus.OK);
 		} catch (Exception e) {

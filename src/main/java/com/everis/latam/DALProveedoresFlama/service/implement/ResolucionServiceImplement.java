@@ -19,9 +19,10 @@ public class ResolucionServiceImplement implements ResolucionService{
 		Resolucion ResolucionIngresoEntidad = new Resolucion();
 		ResolucionDto Respuesta = new ResolucionDto();
 		ResolucionIngresoEntidad = MapeoAEntidad(resolucionIngreso);
+		System.out.println(ResolucionIngresoEntidad);
 		resolucionRepository.save(ResolucionIngresoEntidad);
 		Respuesta = MapeoADto(ResolucionIngresoEntidad);
-		
+		System.out.println(Respuesta);
 		return Respuesta;
 	}
 
@@ -43,20 +44,20 @@ public class ResolucionServiceImplement implements ResolucionService{
 	
 	public ResolucionDto MapeoADto (Resolucion ResolucionAMapear) {
 		ResolucionDto Auxiliar = new ResolucionDto ();
-		Auxiliar.setResolucionId(ResolucionAMapear.getResolucion_Id());
+		Auxiliar.setIdResolucion(ResolucionAMapear.getResolucion_Id());
 		Auxiliar.setSolicitudId(ResolucionAMapear.getSolicitud_Id());
 		Auxiliar.setMontoTotal(ResolucionAMapear.getMonto_Total());
-		Auxiliar.setResolucionFecha(ResolucionAMapear.getResolucion_Fecha());
-		Auxiliar.setResolucionComentario(ResolucionAMapear.getResolucion_Comentario());
+		Auxiliar.setFechaResolucion(ResolucionAMapear.getResolucion_Fecha());
+		Auxiliar.setComentario(ResolucionAMapear.getResolucion_Comentario());
 		return Auxiliar;
 	}
 	public Resolucion MapeoAEntidad(ResolucionDto ResolucionDtoAMapear) {
 		Resolucion auxiliar = new Resolucion();
-		auxiliar.setResolucion_Id(ResolucionDtoAMapear.getResolucionId());
+		auxiliar.setResolucion_Id(ResolucionDtoAMapear.getIdResolucion());
 		auxiliar.setSolicitud_Id(ResolucionDtoAMapear.getSolicitudId());
 		auxiliar.setMonto_Total(ResolucionDtoAMapear.getMontoTotal());
-		auxiliar.setResolucion_Fecha(ResolucionDtoAMapear.getResolucionFecha());
-		auxiliar.setResolucion_Comentario(ResolucionDtoAMapear.getResolucionComentario());
+		auxiliar.setResolucion_Fecha(ResolucionDtoAMapear.getFechaResolucion());
+		auxiliar.setResolucion_Comentario(ResolucionDtoAMapear.getComentario());
 		
 		return auxiliar;
 	}

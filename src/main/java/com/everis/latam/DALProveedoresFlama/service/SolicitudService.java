@@ -1,5 +1,6 @@
 package com.everis.latam.DALProveedoresFlama.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -16,5 +17,7 @@ public interface SolicitudService {
 	SolicitudDto BuscarSolicitudPorId(int idBuscar);
 
 	SolicitudDto ModificarSolicitud(int idBuscar, int estadoNuevo);
+
+	List<SolicitudDto> ListarSolicitudesPorFecha();
 
 }

@@ -26,6 +26,7 @@ public class URLs {
 	public final static String SolicitudUpdate ="/SolicitudModificar";
 	public final static String SolicitudList ="/SolicitudListar";
 	public final static String SolicitudSearch ="/SolicitudBuscarId";
+	public final static String SolicitudListDate = "/SolicitudListarPorFechaAnterior";
 	
 	public final static String WaiverSearch ="/WaiverSearch";
 	

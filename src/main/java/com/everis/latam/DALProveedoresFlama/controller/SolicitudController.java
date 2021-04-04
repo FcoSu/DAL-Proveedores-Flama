@@ -1,6 +1,7 @@
 package com.everis.latam.DALProveedoresFlama.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,6 +75,20 @@ public class SolicitudController {
 		} catch (Exception e) {
 			return new ResponseEntity<>(solicitudModificada, HttpStatus.BAD_REQUEST);
 		}
+		
+	}
+	
+	@GetMapping(value= URLs.SolicitudListDate)
+	public ResponseEntity<List<SolicitudDto>> ListarSolicitudesPorFecha(){
+		List<SolicitudDto> SolicitudesAListarPorFecha = new ArrayList<>();
+		try {
+			SolicitudesAListarPorFecha = solicitudService.ListarSolicitudesPorFecha();
+			return new ResponseEntity<>(SolicitudesAListarPorFecha,HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(SolicitudesAListarPorFecha,HttpStatus.BAD_REQUEST);
+ 
+		}
+		
 		
 	}
 

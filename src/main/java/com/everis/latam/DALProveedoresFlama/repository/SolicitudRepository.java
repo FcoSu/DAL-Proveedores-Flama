@@ -1,5 +1,6 @@
 package com.everis.latam.DALProveedoresFlama.repository;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -23,4 +24,8 @@ public interface SolicitudRepository extends JpaRepository<Solicitud, Integer>{
 	@Modifying
 	@Query (value = "UPDATE solicitud SET estado_solicitud_Id=:idNueva WHERE solicitud_Id=:idBuscar", nativeQuery = true)
 	void UpdateSolicitudPorId( @Param("idNueva") int idNueva, @Param("idBuscar") int idBuscar );
+
+	
+	@Query(value = "SELECT * FROM solicitud WHERE DAY(created_at) = Day(CURRENT_DATE - INTERVAL 1 DAY)", nativeQuery = true)
+	List<Solicitud> ListarSolicitudesPorFecha();
 }

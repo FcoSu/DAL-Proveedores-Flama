@@ -43,11 +43,11 @@ public class SolicitanteServiceImplement implements SolicitanteService {
 		SolicitanteDto auxiliar = new SolicitanteDto();
 		
 		auxiliar.setSolicitanteId(EntidadSolicitante.getSolicitante_Id());
-		auxiliar.setSolicitanteNombre(EntidadSolicitante.getSolicitante_Nombre());
-		auxiliar.setSolicitanteCargo(EntidadSolicitante.getSolicitante_Cargo());
-		auxiliar.setSolicitanteEmail(EntidadSolicitante.getSolicitante_Email());
-		auxiliar.setAprovadorId(EntidadSolicitante.getAprovador_Id());
-		auxiliar.setAprovadorNombre(EntidadSolicitante.getAprovador_Nombre());
+		auxiliar.setNombreSolicitante(EntidadSolicitante.getSolicitante_Nombre());
+		auxiliar.setCargo(EntidadSolicitante.getSolicitante_Cargo());
+		auxiliar.setEmail(EntidadSolicitante.getSolicitante_Email());
+		auxiliar.setIdAprobador(EntidadSolicitante.getAprovador_Id());
+		auxiliar.setAprovador(EntidadSolicitante.getAprovador_Nombre());
 		
 		return auxiliar;
 		
@@ -57,11 +57,11 @@ public class SolicitanteServiceImplement implements SolicitanteService {
 		Solicitante auxiliar = new Solicitante();
 		
 		auxiliar.setSolicitante_Id(SolicitanteDTO.getSolicitanteId());
-		auxiliar.setSolicitante_Nombre(SolicitanteDTO.getSolicitanteNombre());
-		auxiliar.setSolicitante_Cargo(SolicitanteDTO.getSolicitanteCargo());
-		auxiliar.setSolicitante_Email(SolicitanteDTO.getSolicitanteEmail());
-		auxiliar.setAprovador_Id(SolicitanteDTO.getAprovadorId());
-		auxiliar.setAprovador_Nombre(SolicitanteDTO.getAprovadorNombre());
+		auxiliar.setSolicitante_Nombre(SolicitanteDTO.getNombreSolicitante());
+		auxiliar.setSolicitante_Cargo(SolicitanteDTO.getCargo());
+		auxiliar.setSolicitante_Email(SolicitanteDTO.getEmail());
+		auxiliar.setAprovador_Id(SolicitanteDTO.getIdAprobador());
+		auxiliar.setAprovador_Nombre(SolicitanteDTO.getAprovador());
 		
 		return auxiliar;
 	}
