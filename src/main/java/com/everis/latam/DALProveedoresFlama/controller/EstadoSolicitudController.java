@@ -32,7 +32,7 @@ public class EstadoSolicitudController {
 		log.info("Procedimiento correcto en EstadoSolicitudController, metodo: EstadoSolicitudListar");
 		return new ResponseEntity<>(EstadoDTO,HttpStatus.OK);
 		}catch(Exception e) {
-			log.info("ERROR en EstadoSolicitudController, metodo: EstadoSolicitudListar");
+			log.error("ERROR en EstadoSolicitudController, metodo: EstadoSolicitudListar");
 			return new ResponseEntity<>(EstadoDTO,HttpStatus.BAD_REQUEST);
 		}
 		
@@ -46,7 +46,7 @@ public class EstadoSolicitudController {
 			log.info("Procedimiento correcto en EstadoSolicitudController, metodo: EstadoSolicitudBuscarPorId");
 			return new ResponseEntity<>(EstadoEncontrado, HttpStatus.OK);
 		}catch (Exception e) {
-			log.info("ERROR en EstadoSolicitudController, metodo: EstadoSolicitudBuscarPorId");
+			log.error("ERROR en EstadoSolicitudController, metodo: EstadoSolicitudBuscarPorId");
 			return new ResponseEntity<>(EstadoEncontrado, HttpStatus.BAD_REQUEST);
 		}
 		

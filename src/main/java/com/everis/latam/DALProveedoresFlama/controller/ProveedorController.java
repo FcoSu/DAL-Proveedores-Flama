@@ -41,7 +41,7 @@ public class ProveedorController {
 			log.info("Procedimiento correcto en ProveedorController, metodo: IngresarProveedor");
 			return new ResponseEntity<>(Response, HttpStatus.OK);
 		}catch(Exception e) {
-			log.info("Error en ProveedorController, metodo: IngresarProveedor");
+			log.error("Error en ProveedorController, metodo: IngresarProveedor");
 			return new ResponseEntity<>(Response, HttpStatus.BAD_REQUEST);
 		}
 		
@@ -57,8 +57,8 @@ public class ProveedorController {
 			log.info("Procedimiento correcto en ProveedorController, metodo: ProveedorBuscarPorId");
 			return new ResponseEntity<>(Respuesta, HttpStatus.OK);
 		} catch (Exception e) {
-			log.info("Error en ProveedorController, metodo: ProveedorBuscarPorId");
-			return new ResponseEntity<>(Respuesta, HttpStatus.OK);
+			log.error("Error en ProveedorController, metodo: ProveedorBuscarPorId");
+			return new ResponseEntity<>(Respuesta, HttpStatus.BAD_REQUEST);
 		}
 		
 		

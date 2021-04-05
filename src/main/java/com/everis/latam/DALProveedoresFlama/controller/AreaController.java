@@ -38,7 +38,7 @@ public class AreaController {
 			log.info("Procedimiento correcto en AreaController, metodo: getData");
 			return new ResponseEntity<Object>(Response, HttpStatus.OK);			
 		} catch (Exception e) {
-			log.info("ERROR en AreaController metodo: getData");
+			log.error("ERROR en AreaController metodo: getData");
 			return new ResponseEntity<Object>(Response, HttpStatus.BAD_REQUEST);
 		}
 	}
@@ -48,9 +48,10 @@ public class AreaController {
 		List<AreaDto> listaAreas = new ArrayList<>();
 		try {
 			listaAreas = areaService.ListarAreas();
+			log.info("Procedimiento correcto en AreaController, metodo: ObtenerListaAreas");
 			return new ResponseEntity<>(listaAreas, HttpStatus.OK);
 		} catch (Exception e) {
-			log.info("ERROR en AreaController metodo: ObtenerListaAreas");
+			log.error("ERROR en AreaController metodo: ObtenerListaAreas");
 			return new ResponseEntity<>(listaAreas, HttpStatus.BAD_REQUEST);
 		}
 	}
@@ -60,9 +61,10 @@ public class AreaController {
 		AreaDto AreaEncontrada = new AreaDto();
 		try {
 			AreaEncontrada = areaService.BuscarPorId(ID);
+			log.info("Procedimiento correcto en AreaController, metodo: ObtenerAreaPorId");
 			return new ResponseEntity<>(AreaEncontrada, HttpStatus.OK);
 		} catch (Exception e) {
-			log.info("ERROR en AreaController metodo: ObtenerAreaPorId");
+			log.error("ERROR en AreaController metodo: ObtenerAreaPorId");
 			return new ResponseEntity<>(AreaEncontrada, HttpStatus.BAD_REQUEST);
 		}
 	}

@@ -38,7 +38,7 @@ public class SolicitudController {
 			log.info("Procedimiento correcto en SolicitudController, metodo: SolicitudIngresar");
 			return new ResponseEntity<>(Response, HttpStatus.OK);
 		} catch (Exception e) {
-			log.info("Error en SolicitudController, metodo: SolicitudIngresar");
+			log.error("Error en SolicitudController, metodo: SolicitudIngresar");
 			return new ResponseEntity<>(Response, HttpStatus.BAD_REQUEST);
 		}
 
@@ -52,7 +52,7 @@ public class SolicitudController {
 			SolicitudesAListar = solicitudService.ListarSolicitudes();
 			return new ResponseEntity<>(SolicitudesAListar,HttpStatus.OK);
 		} catch (Exception e) {
-			log.info("Error en SolicitudController, metodo: SolicitudesListar");
+			log.error("Error en SolicitudController, metodo: SolicitudesListar");
 			return new ResponseEntity<>(SolicitudesAListar,HttpStatus.BAD_REQUEST);
  
 		}
@@ -66,7 +66,7 @@ public class SolicitudController {
 			log.info("Procedimiento correcto en SolicitudController, metodo: BuscarSolicitudPorId");
 			return new ResponseEntity<>(SolicitudEncontrada,HttpStatus.OK);
 		} catch (Exception e) {
-			log.info("Error en SolicitudController, metodo: BuscarSolicitudPorId");
+			log.error("Error en SolicitudController, metodo: BuscarSolicitudPorId");
 			return new ResponseEntity<>(SolicitudEncontrada,HttpStatus.BAD_REQUEST);
 		}
 		
@@ -80,7 +80,7 @@ public class SolicitudController {
 			log.info("Procedimiento correcto en SolicitudController, metodo: ModificarEstadoSolicitud");
 			return new ResponseEntity<>(solicitudModificada, HttpStatus.OK);
 		} catch (Exception e) {
-			log.info("Error en SolicitudController, metodo: ModificarEstadoSolicitud");
+			log.error("Error en SolicitudController, metodo: ModificarEstadoSolicitud");
 			return new ResponseEntity<>(solicitudModificada, HttpStatus.BAD_REQUEST);
 		}
 		
@@ -94,7 +94,7 @@ public class SolicitudController {
 			log.info("Procedimiento correcto en SolicitudController, metodo: ListarSolicitudesPorFecha");
 			return new ResponseEntity<>(SolicitudesAListarPorFecha,HttpStatus.OK);
 		} catch (Exception e) {
-			log.info("Error en SolicitudController, metodo: ListarSolicitudesPorFecha");
+			log.error("Error en SolicitudController, metodo: ListarSolicitudesPorFecha");
 			return new ResponseEntity<>(SolicitudesAListarPorFecha,HttpStatus.BAD_REQUEST);
  
 		}

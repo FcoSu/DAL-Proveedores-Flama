@@ -30,7 +30,7 @@ public class WaiverController {
 			log.info("Procedimiento correcto en WaiverController, metodo: BuscarWaiverPorId");
 			return new ResponseEntity<>(WaiverEncontrado,HttpStatus.OK);
 		} catch (Exception e) {
-			log.info("Error en WaiverController, metodo: BuscarWaiverPorId");
+			log.error("Error en WaiverController, metodo: BuscarWaiverPorId");
 			return new ResponseEntity<>(WaiverEncontrado,HttpStatus.BAD_REQUEST);
 		}
 		

@@ -34,7 +34,7 @@ public class ResolucionController {
 			log.info("Procedimiento correcto en ResolucionController, metodo: ResolucionIgresar");
 			return new ResponseEntity<>(Response, HttpStatus.OK);
 		} catch (Exception e) {
-			log.info("Error en ResolucionController, metodo: ResolucionIgresar");
+			log.error("Error en ResolucionController, metodo: ResolucionIgresar");
 			return new ResponseEntity<>(Response, HttpStatus.BAD_REQUEST);
 
 		}
@@ -49,7 +49,7 @@ public class ResolucionController {
 			log.info("Procedimiento correcto en ResolucionController, metodo: ResolucionBuscarPorId");
 			return new ResponseEntity<ResolucionDto>(Respuesta, HttpStatus.OK);
 		} catch (Exception e) {
-			log.info("Error en ResolucionController, metodo: ResolucionBuscarPorId");
+			log.error("Error en ResolucionController, metodo: ResolucionBuscarPorId");
 			return new ResponseEntity<ResolucionDto>(Respuesta, HttpStatus.BAD_REQUEST);
 			
 		}

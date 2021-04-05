@@ -34,7 +34,7 @@ public class SolicitanteController {
 			log.info("Procedimiento correcto en SolicitanteController, metodo: IngresarSolicitante");
 			return new ResponseEntity<>(Response, HttpStatus.OK);
 		} catch (Exception e) {
-			log.info("Error en SolicitanteController, metodo: IngresarSolicitante");
+			log.error("Error en SolicitanteController, metodo: IngresarSolicitante");
 			return new ResponseEntity<>(Response, HttpStatus.BAD_REQUEST);
 		}
 		
@@ -47,8 +47,8 @@ public class SolicitanteController {
 			log.info("Procedimiento correcto en SolicitanteController, metodo: BuscarSolicitantePorId");
 			return new ResponseEntity<>(SolicitanteRespuesta, HttpStatus.OK);
 		} catch (Exception e) {
-			log.info("Error en SolicitanteController, metodo: BuscarSolicitantePorId");
-			return new ResponseEntity<>(SolicitanteRespuesta, HttpStatus.OK);
+			log.error("Error en SolicitanteController, metodo: BuscarSolicitantePorId");
+			return new ResponseEntity<>(SolicitanteRespuesta, HttpStatus.BAD_REQUEST);
 
 		}
 		

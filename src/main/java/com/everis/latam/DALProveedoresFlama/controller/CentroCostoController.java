@@ -34,7 +34,7 @@ public class CentroCostoController {
 			log.info("Procedimiento correcto en CentroCostoController, metodo: ListarCentrosCosto");
 			return new ResponseEntity<>(centroLista,HttpStatus.OK);
 		}catch(Exception e) {
-			log.info("ERROR en CentroCostoController metodo: ListarCentrosCosto");
+			log.error("ERROR en CentroCostoController metodo: ListarCentrosCosto");
 			return new ResponseEntity<>(centroLista, HttpStatus.BAD_REQUEST);
 		}
 		
@@ -48,7 +48,7 @@ public class CentroCostoController {
 			log.info("Procedimiento correcto en CentroCostoController, metodo: BuscarCentroPorNombre");
 			return new ResponseEntity<>(CentroEncontrado,HttpStatus.OK);
 		}catch(Exception e) {
-			log.info("ERROR en CentroCostoController metodo: BuscarCentroPorNombre");
+			log.error("ERROR en CentroCostoController metodo: BuscarCentroPorNombre");
 			return new ResponseEntity<>(CentroEncontrado,HttpStatus.BAD_REQUEST);
 			
 		}
