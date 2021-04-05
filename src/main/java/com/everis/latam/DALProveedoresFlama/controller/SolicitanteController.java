@@ -14,6 +14,8 @@ import com.everis.latam.DALProveedoresFlama.URLs.URLs;
 import com.everis.latam.DALProveedoresFlama.dto.SolicitanteDto;
 import com.everis.latam.DALProveedoresFlama.service.SolicitanteService;
 
+import lombok.extern.slf4j.Slf4j;
+@Slf4j
 @RestController
 @RequestMapping("/Solicitante")
 public class SolicitanteController {
@@ -29,8 +31,10 @@ public class SolicitanteController {
 		SolicitanteAIngresar = SolicitanteDTO;
 		try {
 			Response = solicitanteService.save(SolicitanteAIngresar);
+			log.info("Procedimiento correcto en SolicitanteController, metodo: IngresarSolicitante");
 			return new ResponseEntity<>(Response, HttpStatus.OK);
 		} catch (Exception e) {
+			log.info("Error en SolicitanteController, metodo: IngresarSolicitante");
 			return new ResponseEntity<>(Response, HttpStatus.BAD_REQUEST);
 		}
 		
@@ -40,8 +44,10 @@ public class SolicitanteController {
 		SolicitanteDto SolicitanteRespuesta = new SolicitanteDto();
 		try {
 			SolicitanteRespuesta = solicitanteService.BuscarSolicitantePorId(ID);
+			log.info("Procedimiento correcto en SolicitanteController, metodo: BuscarSolicitantePorId");
 			return new ResponseEntity<>(SolicitanteRespuesta, HttpStatus.OK);
 		} catch (Exception e) {
+			log.info("Error en SolicitanteController, metodo: BuscarSolicitantePorId");
 			return new ResponseEntity<>(SolicitanteRespuesta, HttpStatus.OK);
 
 		}

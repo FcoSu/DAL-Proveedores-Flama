@@ -14,6 +14,8 @@ import com.everis.latam.DALProveedoresFlama.URLs.URLs;
 import com.everis.latam.DALProveedoresFlama.dto.ResolucionDto;
 import com.everis.latam.DALProveedoresFlama.service.ResolucionService;
 
+import lombok.extern.slf4j.Slf4j;
+@Slf4j
 @RestController
 @RequestMapping("/Resolucion")
 public class ResolucionController {
@@ -29,8 +31,10 @@ public class ResolucionController {
 		
 		try {
 			Response = resolucionService.save(ResolucionIngreso);
+			log.info("Procedimiento correcto en ResolucionController, metodo: ResolucionIgresar");
 			return new ResponseEntity<>(Response, HttpStatus.OK);
 		} catch (Exception e) {
+			log.info("Error en ResolucionController, metodo: ResolucionIgresar");
 			return new ResponseEntity<>(Response, HttpStatus.BAD_REQUEST);
 
 		}
@@ -42,8 +46,10 @@ public class ResolucionController {
 		ResolucionDto Respuesta = new ResolucionDto();
 		try {
 			Respuesta = resolucionService.BuscarPorId(ID);
+			log.info("Procedimiento correcto en ResolucionController, metodo: ResolucionBuscarPorId");
 			return new ResponseEntity<ResolucionDto>(Respuesta, HttpStatus.OK);
 		} catch (Exception e) {
+			log.info("Error en ResolucionController, metodo: ResolucionBuscarPorId");
 			return new ResponseEntity<ResolucionDto>(Respuesta, HttpStatus.BAD_REQUEST);
 			
 		}

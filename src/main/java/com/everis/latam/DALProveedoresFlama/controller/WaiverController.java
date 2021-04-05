@@ -12,6 +12,9 @@ import com.everis.latam.DALProveedoresFlama.URLs.URLs;
 import com.everis.latam.DALProveedoresFlama.dto.WaiverDto;
 import com.everis.latam.DALProveedoresFlama.service.WaiverService;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RestController
 @RequestMapping("/Waiver")
 public class WaiverController {
@@ -24,8 +27,10 @@ public class WaiverController {
 		WaiverDto WaiverEncontrado = new WaiverDto();
 		try {
 			WaiverEncontrado = waiverServicio.BuscarWaiverPorId(IDAprovador);
+			log.info("Procedimiento correcto en WaiverController, metodo: BuscarWaiverPorId");
 			return new ResponseEntity<>(WaiverEncontrado,HttpStatus.OK);
 		} catch (Exception e) {
+			log.info("Error en WaiverController, metodo: BuscarWaiverPorId");
 			return new ResponseEntity<>(WaiverEncontrado,HttpStatus.BAD_REQUEST);
 		}
 		

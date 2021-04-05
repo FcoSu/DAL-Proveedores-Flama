@@ -12,9 +12,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.everis.latam.DALProveedoresFlama.service.CentroCostoService;
+
+import lombok.extern.slf4j.Slf4j;
+
 import com.everis.latam.DALProveedoresFlama.URLs.URLs;
 import com.everis.latam.DALProveedoresFlama.dto.CentroCostoDto;
 
+@Slf4j
 @RestController
 @RequestMapping("/CentroCosto")
 public class CentroCostoController {
@@ -27,8 +31,10 @@ public class CentroCostoController {
 		List <CentroCostoDto> centroLista = new ArrayList<>(); 
 		try {
 			centroLista = centroService.CentrosListar();
+			log.info("Procedimiento correcto en CentroCostoController, metodo: ListarCentrosCosto");
 			return new ResponseEntity<>(centroLista,HttpStatus.OK);
 		}catch(Exception e) {
+			log.info("ERROR en CentroCostoController metodo: ListarCentrosCosto");
 			return new ResponseEntity<>(centroLista, HttpStatus.BAD_REQUEST);
 		}
 		
@@ -39,8 +45,10 @@ public class CentroCostoController {
 		CentroCostoDto CentroEncontrado = new CentroCostoDto();
 		try {
 			CentroEncontrado = centroService.ObtenerCentroPorNombre(Nombre);
+			log.info("Procedimiento correcto en CentroCostoController, metodo: BuscarCentroPorNombre");
 			return new ResponseEntity<>(CentroEncontrado,HttpStatus.OK);
 		}catch(Exception e) {
+			log.info("ERROR en CentroCostoController metodo: BuscarCentroPorNombre");
 			return new ResponseEntity<>(CentroEncontrado,HttpStatus.BAD_REQUEST);
 			
 		}

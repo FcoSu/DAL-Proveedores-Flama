@@ -17,6 +17,9 @@ import com.everis.latam.DALProveedoresFlama.URLs.URLs;
 import com.everis.latam.DALProveedoresFlama.dto.SolicitudDto;
 import com.everis.latam.DALProveedoresFlama.service.SolicitudService;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RestController
 @RequestMapping("/Solicitud")
 public class SolicitudController {
@@ -32,8 +35,10 @@ public class SolicitudController {
 		try {
 			SolicitudAIngresar = SolicitudIngreso;
 			Response = solicitudService.save(SolicitudAIngresar);
+			log.info("Procedimiento correcto en SolicitudController, metodo: SolicitudIngresar");
 			return new ResponseEntity<>(Response, HttpStatus.OK);
 		} catch (Exception e) {
+			log.info("Error en SolicitudController, metodo: SolicitudIngresar");
 			return new ResponseEntity<>(Response, HttpStatus.BAD_REQUEST);
 		}
 
@@ -43,9 +48,11 @@ public class SolicitudController {
 	public ResponseEntity<List<SolicitudDto>> SolicitudesListar(){
 		List<SolicitudDto> SolicitudesAListar = new ArrayList<>();
 		try {
+			log.info("Procedimiento correcto en SolicitudController, metodo: SolicitudesListar");
 			SolicitudesAListar = solicitudService.ListarSolicitudes();
 			return new ResponseEntity<>(SolicitudesAListar,HttpStatus.OK);
 		} catch (Exception e) {
+			log.info("Error en SolicitudController, metodo: SolicitudesListar");
 			return new ResponseEntity<>(SolicitudesAListar,HttpStatus.BAD_REQUEST);
  
 		}
@@ -56,8 +63,10 @@ public class SolicitudController {
 		SolicitudDto SolicitudEncontrada = new SolicitudDto();
 		try {
 			SolicitudEncontrada = solicitudService.BuscarSolicitudPorId(idBuscar);
+			log.info("Procedimiento correcto en SolicitudController, metodo: BuscarSolicitudPorId");
 			return new ResponseEntity<>(SolicitudEncontrada,HttpStatus.OK);
 		} catch (Exception e) {
+			log.info("Error en SolicitudController, metodo: BuscarSolicitudPorId");
 			return new ResponseEntity<>(SolicitudEncontrada,HttpStatus.BAD_REQUEST);
 		}
 		
@@ -68,8 +77,10 @@ public class SolicitudController {
 		SolicitudDto solicitudModificada =new SolicitudDto();
 		try {
 			solicitudModificada = solicitudService.ModificarSolicitud(idBuscar,EstadoNuevo);
+			log.info("Procedimiento correcto en SolicitudController, metodo: ModificarEstadoSolicitud");
 			return new ResponseEntity<>(solicitudModificada, HttpStatus.OK);
 		} catch (Exception e) {
+			log.info("Error en SolicitudController, metodo: ModificarEstadoSolicitud");
 			return new ResponseEntity<>(solicitudModificada, HttpStatus.BAD_REQUEST);
 		}
 		
@@ -80,8 +91,10 @@ public class SolicitudController {
 		List<SolicitudDto> SolicitudesAListarPorFecha = new ArrayList<>();
 		try {
 			SolicitudesAListarPorFecha = solicitudService.ListarSolicitudesPorFecha();
+			log.info("Procedimiento correcto en SolicitudController, metodo: ListarSolicitudesPorFecha");
 			return new ResponseEntity<>(SolicitudesAListarPorFecha,HttpStatus.OK);
 		} catch (Exception e) {
+			log.info("Error en SolicitudController, metodo: ListarSolicitudesPorFecha");
 			return new ResponseEntity<>(SolicitudesAListarPorFecha,HttpStatus.BAD_REQUEST);
  
 		}

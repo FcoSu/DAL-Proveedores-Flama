@@ -36,9 +36,12 @@ public class ProveedorController {
 		ProveedorAIngresar = proveedor;
 		log.info("Mapeo Correcto");
 		try {
+			
 			Response = ProveedorServicio.save(ProveedorAIngresar);
+			log.info("Procedimiento correcto en ProveedorController, metodo: IngresarProveedor");
 			return new ResponseEntity<>(Response, HttpStatus.OK);
 		}catch(Exception e) {
+			log.info("Error en ProveedorController, metodo: IngresarProveedor");
 			return new ResponseEntity<>(Response, HttpStatus.BAD_REQUEST);
 		}
 		
@@ -51,9 +54,10 @@ public class ProveedorController {
 		
 		try {
 			Respuesta = ProveedorServicio.BuscarProveedorPorID(ID);
+			log.info("Procedimiento correcto en ProveedorController, metodo: ProveedorBuscarPorId");
 			return new ResponseEntity<>(Respuesta, HttpStatus.OK);
 		} catch (Exception e) {
-			
+			log.info("Error en ProveedorController, metodo: ProveedorBuscarPorId");
 			return new ResponseEntity<>(Respuesta, HttpStatus.OK);
 		}
 		
@@ -66,8 +70,10 @@ public class ProveedorController {
 		
 		try {
 		Respuesta = ProveedorServicio.ListarProveedor();
+		log.info("Procedimiento correcto en ProveedorController, metodo: ProveedoresListar");
 		return new ResponseEntity<>(Respuesta, HttpStatus.OK);
 		}catch(Exception e) {
+			log.info("Error en ProveedorController, metodo: ProveedoresListar");
 			return new ResponseEntity<>(Respuesta, HttpStatus.BAD_REQUEST);
 		}
 		

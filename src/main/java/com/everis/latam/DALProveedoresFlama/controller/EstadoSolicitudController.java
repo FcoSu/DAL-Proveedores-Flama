@@ -15,6 +15,8 @@ import com.everis.latam.DALProveedoresFlama.URLs.URLs;
 import com.everis.latam.DALProveedoresFlama.dto.EstadoSolicitudDto;
 import com.everis.latam.DALProveedoresFlama.service.EstadoSolicitudService;
 
+import lombok.extern.slf4j.Slf4j;
+@Slf4j
 @RestController
 @RequestMapping("/EstadoSolicitud")
 public class EstadoSolicitudController {
@@ -27,8 +29,10 @@ public class EstadoSolicitudController {
 		List<EstadoSolicitudDto> EstadoDTO = new ArrayList<>();
 		try {
 		EstadoDTO = EstadoService.EstadosListar();
+		log.info("Procedimiento correcto en EstadoSolicitudController, metodo: EstadoSolicitudListar");
 		return new ResponseEntity<>(EstadoDTO,HttpStatus.OK);
 		}catch(Exception e) {
+			log.info("ERROR en EstadoSolicitudController, metodo: EstadoSolicitudListar");
 			return new ResponseEntity<>(EstadoDTO,HttpStatus.BAD_REQUEST);
 		}
 		
@@ -39,8 +43,10 @@ public class EstadoSolicitudController {
 		EstadoSolicitudDto EstadoEncontrado =  new EstadoSolicitudDto();
 		try {
 			EstadoEncontrado = EstadoService.BuscarEstadoPorId(ID);
+			log.info("Procedimiento correcto en EstadoSolicitudController, metodo: EstadoSolicitudBuscarPorId");
 			return new ResponseEntity<>(EstadoEncontrado, HttpStatus.OK);
 		}catch (Exception e) {
+			log.info("ERROR en EstadoSolicitudController, metodo: EstadoSolicitudBuscarPorId");
 			return new ResponseEntity<>(EstadoEncontrado, HttpStatus.BAD_REQUEST);
 		}
 		
