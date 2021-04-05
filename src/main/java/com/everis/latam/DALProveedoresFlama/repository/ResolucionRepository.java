@@ -11,4 +11,6 @@ public interface ResolucionRepository extends JpaRepository<Resolucion, Integer>
 	@Query(value = "SELECT * FROM resolucion WHERE resolucion_Id=:idBuscar",nativeQuery = true)
 	Resolucion BuscarResolucionPorID(@Param("idBuscar")int idBuscar);
 
+	@Query(value = "SELECT * FROM resolucion order by resolucion_Id desc limit 1", nativeQuery = true)
+	Resolucion BuscarUltimaResolucion ();
 }

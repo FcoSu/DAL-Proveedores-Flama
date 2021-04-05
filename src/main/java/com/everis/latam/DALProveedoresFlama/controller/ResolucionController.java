@@ -55,6 +55,20 @@ public class ResolucionController {
 		}
 		
 	}
+	@GetMapping(value = URLs.ResolucionLast )
+	public ResponseEntity<ResolucionDto> ResolucionBuscarUltimoIngreso(){
+		ResolucionDto Respuesta = new ResolucionDto();
+		try {
+			Respuesta = resolucionService.BuscarUltimaResolucion();
+			log.info("Procedimiento correcto en ResolucionController, metodo: ResolucionBuscarUltimoIngreso");
+			return new ResponseEntity<ResolucionDto>(Respuesta, HttpStatus.OK);
+		} catch (Exception e) {
+			log.error("Error en ResolucionController, metodo: ResolucionBuscarUltimoIngreso");
+			return new ResponseEntity<ResolucionDto>(Respuesta, HttpStatus.BAD_REQUEST);
+			
+		}
+		
+	}
 	
 
 }
