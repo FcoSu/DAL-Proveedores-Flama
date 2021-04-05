@@ -18,6 +18,7 @@ public class URLs {
 	
 	public final static String ResolucionInsert ="/ResolucionIngresar";
 	public final static String ResolucionSearch ="/ResolucionBuscarId";
+	public final static String ResolucionLast = "/ResolucionBuscarUltimo";
 	
 	public final static String SolicitanteInsert ="/SolicitanteIngresar";
 	public final static String SolicitanteSearch ="/SolicitanteBuscarId";

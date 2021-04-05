@@ -9,5 +9,6 @@ public interface ResolucionService {
 
 	ResolucionDto save(ResolucionDto resolucionIngreso);
 	ResolucionDto BuscarPorId(int Id);
+	ResolucionDto BuscarUltimaResolucion();
 
 }

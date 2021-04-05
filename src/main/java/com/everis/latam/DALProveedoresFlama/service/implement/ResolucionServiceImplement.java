@@ -40,6 +40,18 @@ public class ResolucionServiceImplement implements ResolucionService{
 		
 		
 	}
+	@Override
+	public ResolucionDto BuscarUltimaResolucion() {
+		ResolucionDto Respuesta = new ResolucionDto();
+		Resolucion Aux= new Resolucion();
+		try {
+			Aux = resolucionRepository.BuscarUltimaResolucion();
+			Respuesta = MapeoADto(Aux);
+			return Respuesta;
+		} catch (Exception e) {
+			return Respuesta;
+		}
+	}
 	
 	
 	public ResolucionDto MapeoADto (Resolucion ResolucionAMapear) {
@@ -61,5 +73,7 @@ public class ResolucionServiceImplement implements ResolucionService{
 		
 		return auxiliar;
 	}
+
+	
 
 }
